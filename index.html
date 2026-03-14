@@ -95,7 +95,7 @@
 
         /* Card Header with Brand */
         .card-header-section {
-            background: linear-gradient(135deg, var(--dark) 0%, var(--navy) 100%);
+            background: none;
             padding: 2rem;
             text-align: center;
             position: relative;
@@ -158,8 +158,8 @@
         }
 
         .avatar {
-            width: clamp(100px, 25vw, 120px);
-            height: clamp(100px, 25vw, 120px);
+            width: clamp(100px, 25vw, 180px);
+            height: clamp(100px, 25vw, 180px);
             border-radius: 50%;
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             display: flex;
@@ -679,31 +679,39 @@
                     </button>
 
                     <!-- Header / Brand -->
-                    <div class="card-header-section">
-                        <div class="brand-logo">
-                            Verifi<span>tech</span>
-                            <span class="brand-tagline">Trust Simplified</span>
-                        </div>
-                    </div>
+                  <!-- Header / Brand -->
+<div class="card-header-section">
+    <div class="brand-logo">
+        <img src="https://www.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg" 
+             width="250" 
+             height="250" 
+             alt="logo"
+             style="margin-bottom: 8px; "> 
+        
+    </div>
+</div>
 
                     <!-- Profile -->
-                    <div class="profile-section">
-                        <div class="avatar-container">
-                            <div class="avatar" id="avatarInitials">
-                                <img src="https://raw.githubusercontent.com/kovendan16/card/main/Nagarajan%20E.K.jpg" 
-                                     alt="E K Nagarajan" 
-                                     onerror="this.style.display='none'; this.parentElement.textContent='EK';">
-                            </div>
-                            <div class="status-indicator" title="Available for meetings"></div>
-                        </div>
-                        <h1 class="profile-name" id="profileName">E K Nagarajan</h1>
-                        <p class="profile-title" id="profileTitle">Business Growth Strategist</p>
-                        <div class="profile-company">
-                            <i class="bi bi-building"></i>
-                            <span>Verifitech</span>
-                        </div>
-                    </div>
-
+                    <!-- Profile -->
+<div class="profile-section">
+    <div class="avatar-container">
+        <div class="avatar" id="avatarInitials">
+            <img src="https://github.com/kovendan16/card/blob/main/Nagarajan%20E.K.jpg.jpeg?raw=true"  
+                 width="120px" 
+                 height="120px" 
+                 alt="E K Nagarajan"
+                 style="object-fit: cover; border-radius: 50%;"
+                 onerror="this.style.display='none'; this.parentElement.textContent='EK';">
+        </div>
+        <div class="status-indicator" title="Available for meetings"></div>
+    </div>
+    <h1 class="profile-name" id="profileName">E K Nagarajan</h1>
+    <p class="profile-title" id="profileTitle">Business Growth Strategist</p>
+    <div class="profile-company">
+        <i class="bi bi-building"></i>
+        <span>Verifitech</span>
+    </div>
+</div>
                     <!-- Quick Actions -->
                     <div class="actions-grid">
                         <a href="tel:+919240262315" class="action-btn" onclick="trackAction('call')">
@@ -718,7 +726,7 @@
                             <div class="action-icon"><i class="bi bi-whatsapp"></i></div>
                             <span class="action-label">WhatsApp</span>
                         </a>
-                        <a href="https://www.linkedin.com/in/e-k-nagarajan-vt/" class="action-btn" onclick="trackAction('linkedin')">
+                        <a href="https://www.linkedin.com/in/e-k-nagarajan-vt" class="action-btn" onclick="trackAction('linkedin')">
                             <div class="action-icon"><i class="bi bi-linkedin"></i></div>
                             <span class="action-label">LinkedIn</span>
                         </a>
@@ -744,7 +752,7 @@
                             <i class="bi bi-chevron-right text-muted"></i>
                         </a>
                         
-                        <a href="https://verifitech.com" class="contact-item" target="_blank">
+                        <a href="https://verifitech.in" class="contact-item" target="_blank">
                             <div class="contact-icon"><i class="bi bi-globe"></i></div>
                             <div class="contact-info">
                                 <div class="contact-label">Website</div>
@@ -756,14 +764,14 @@
                         <div class="contact-item" onclick="copyAddress()" style="cursor: pointer;">
                             <div class="contact-icon"><i class="bi bi-geo-alt"></i></div>
                             <div class="contact-info">
-                                <div class="contact-label">Location</div>
-                                <div class="contact-value">India | USA | UAE</div>
+                                <div class="contact-label">Address</div>
+                                <div class="contact-value">Bangalore | Mumbai | Delhi</div>
                             </div>
                             <i class="bi bi-copy text-muted"></i>
                         </div>
                     </div>
 
-                    <!-- Meeting Context (Lead Qualification) 
+                    <!-- Meeting Context (Lead Qualification) -->
                     <div class="context-section">
                         <div class="context-title">How did we meet?</div>
                         <div class="context-chips">
@@ -774,19 +782,19 @@
                             <button class="context-chip" onclick="selectContext(this, 'other')">Other</button>
                         </div>
                     </div>
--->
+
                     <!-- Primary CTAs -->
                     <div class="cta-section">
                         <button class="btn-save-contact" onclick="saveContact()">
                             <i class="bi bi-person-plus-fill"></i>
                             Save Contact
                         </button>
-                       <!-- <a href="https://calendly.com/vikram-verifitech/30min" class="btn-schedule" target="_blank">
+                        <a href="https://calendly.com/vikram-verifitech/30min" class="btn-schedule" target="_blank">
                             <i class="bi bi-calendar-check"></i>
                             Schedule 30-Min Meeting
                         </a>
                     </div>
-->
+
                     <!-- Footer / Credibility -->
                     <div class="card-footer">
                         <div class="credibility-badges">
@@ -893,10 +901,10 @@ END:VCARD`;
 
         // Copy Address
         function copyAddress() {
-            const address = 'Verifitech Solutions India Pvt. Ltd.\nIndia | USA | UAE\nwww.verifitech.in';
+            const address = 'Verifitech Solutions India Pvt. Ltd.\nBangalore | Mumbai | Delhi\nwww.verifitech.in';
             navigator.clipboard.writeText(address).then(() => {
                 // Show toast notification instead of alert for better UX
-                showToast('Location copied to clipboard!');
+                showToast('Address copied to clipboard!');
             });
         }
 
