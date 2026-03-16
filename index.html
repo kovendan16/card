@@ -175,29 +175,62 @@
             overflow: hidden;
         }
 
-        .avatar img {
+        .avatar 
+      {
             width: 100%;
             height: 100%;
             object-fit: cover;
             border-radius: 50%;
         }
 
+        /* Online Indicator - Bottom Right Aligned */
         .status-indicator {
             position: absolute;
-            bottom: 5px;
-            right: 5px;
-            width: clamp(20px, 5vw, 24px);
-            height: clamp(20px, 5vw, 24px);
+            bottom: 8px;
+            right: -15px;
+            width: clamp(28px, 7vw, 36px);
+            height: clamp(28px, 7vw, 36px);
             background: #10b981;
-            border: 3px solid var(--card-bg);
+            border: 4px solid var(--card-bg);
             border-radius: 50%;
             z-index: 2;
             animation: pulse-status 2s infinite;
+            box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
+            cursor: pointer;
         }
 
         @keyframes pulse-status {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
-            50% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+            0%, 100% { 
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); 
+            }
+            50% { 
+                box-shadow: 0 0 0 12px rgba(16, 185, 129, 0); 
+            }
+        }
+
+        /* Online tooltip on hover */
+        .status-indicator::after {
+            content: 'Online';
+            position: absolute;
+            bottom: 140%;
+            left: 50%;
+            transform: translateX(-50%) scale(0);
+            background: #10b981;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            transition: all 0.3s ease;
+            pointer-events: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .status-indicator:hover::after {
+            transform: translateX(-50%) scale(1);
+            opacity: 1;
         }
 
         .profile-name {
@@ -549,6 +582,13 @@
             .action-btn {
                 padding: 0.75rem 0.25rem;
             }
+
+            /* Mobile status indicator adjustments */
+            .status-indicator {
+                bottom: 5px;
+                right: 5px;
+                border-width: 3px;
+            }
         }
 
         /* sm devices (landscape phones, 576px and up) */
@@ -606,6 +646,14 @@
                 width: 80px;
                 height: 80px;
                 font-size: 2rem;
+            }
+
+            .status-indicator {
+                width: 20px;
+                height: 20px;
+                bottom: 3px;
+                right: 3px;
+                border-width: 2px;
             }
         }
 
@@ -679,55 +727,44 @@
                     </button>
 
                     <!-- Header / Brand -->
-                  <!-- Header / Brand -->
-<div class="card-header-section">
-    <div class="brand-logo">
-        <img src="https://www.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg" 
-             width="200" 
-             height="100" 
-             alt="logo"
-             style="margin-bottom: 8px; "> 
-        
-    </div>
-</div>
+                    <div class="card-header-section">
+                        <div class="brand-logo">
+                            <img src="https://www.verifitech.com/wp-content/uploads/2022/05/verifitech-logo.svg" 
+                                 width="200px" 
+                                 height="120px" 
+                                 alt="logo"
+                                 style="margin-bottom: 8px;"> 
+                        </div>
+                    </div>
 
                     <!-- Profile -->
-                    <!-- Profile -->
-<div class="profile-section">
-    <div class="avatar-container">
-        <div class="avatar" id="avatarInitials">
-           <!-- <img src="https://github.com/kovendan16/card/blob/main/Nagarajan%20E.K.jpg%20(1).jpeg?raw=true"  
-                 
-                 width="120px" 
-                 height="120px" 
-                 alt="E K Nagarajan"
-                 style="object-fit: cover; border-radius: 50%;"
-                 onerror="this.style.display='none'; this.parentElement.textContent='EK';">
-        -->
-            <img src="https://github.com/Marknerdss/image/blob/main/EKN.png?raw=true"   width="120px" 
-                 height="120px" 
-                 alt="E K Nagarajan"
-                 style="object-fit: cover; border-radius: 50%;"
-                 onerror="this.style.display='none'; this.parentElement.textContent='EK';>
-        </div>
-                
-        <div class="status-indicator" title="Available for meetings"></div>
-    </div>
-    <h1 class="profile-name" id="profileName">E K Nagarajan</h1>
-    <p class="profile-title" id="profileTitle"> Growth Strategist</p>
-    <div class="profile-company">
-        <i class="bi bi-building"></i>
-        <span>Verifitech</span>
-    </div>
-</div>
+                    <div class="profile-section">
+                        <div class="avatar-container">
+                            <div class="avatar" id="avatarInitials">
+                                <img src="https://github.com/Marknerdss/image/blob/main/EKN.png?raw=true"  
+                                     width="120px" 
+                                     height="120px" 
+                                     alt="E K Nagarajan"
+                                     style="object-fit: cover; border-radius: 50%;"
+                                     onerror="this.style.display='none'; this.parentElement.textContent='EK';">
+                            </div>
+                            <div class="status-indicator" title="Available for meetings"></div>
+                        </div>
+                        <h1 class="profile-name" id="profileName">E K Nagarajan</h1>
+                        <p class="profile-title" id="profileTitle">Business Growth Strategist</p>
+                        <div class="profile-company">
+                            <i class="bi bi-building"></i>
+                            <span>Verifitech</span>
+                        </div>
+                    </div>
+
                     <!-- Quick Actions -->
                     <div class="actions-grid">
                         <a href="tel:+919240262315" class="action-btn" onclick="trackAction('call')">
                             <div class="action-icon"><i class="bi bi-telephone-fill"></i></div>
                             <span class="action-label">Call</span>
                         </a>
-                        <a href="mailto: corporate@verifitech.com
-                        " class="action-btn" onclick="trackAction('email')">
+                        <a href="mailto:corporate@verifitech.com" class="action-btn" onclick="trackAction('email')">
                             <div class="action-icon"><i class="bi bi-envelope-fill"></i></div>
                             <span class="action-label">Email</span>
                         </a>
@@ -752,7 +789,7 @@
                             <i class="bi bi-chevron-right text-muted"></i>
                         </a>
                         
-                        <a href="mailto: corporate@verifitech.com" class="contact-item">
+                        <a href="mailto:corporate@verifitech.com" class="contact-item">
                             <div class="contact-icon"><i class="bi bi-envelope"></i></div>
                             <div class="contact-info">
                                 <div class="contact-label">Email</div>
@@ -780,28 +817,12 @@
                         </div>
                     </div>
 
-                    <!-- Meeting Context (Lead Qualification) 
-                    <div class="context-section">
-                        <div class="context-title">How did we meet?</div>
-                        <div class="context-chips">
-                            <button class="context-chip" onclick="selectContext(this, 'conference')">Conference</button>
-                            <button class="context-chip" onclick="selectContext(this, 'referral')">Referral</button>
-                            <button class="context-chip" onclick="selectContext(this, 'linkedin')">LinkedIn</button>
-                            <button class="context-chip" onclick="selectContext(this, 'event')">Event</button>
-                            <button class="context-chip" onclick="selectContext(this, 'other')">Other</button>
-                        </div>
-                    </div> -->
-
                     <!-- Primary CTAs -->
                     <div class="cta-section">
                         <button class="btn-save-contact" onclick="saveContact()">
                             <i class="bi bi-person-plus-fill"></i>
                             Save Contact
                         </button>
-                       <!-- <a href="https://calendly.com/vikram-verifitech/30min" class="btn-schedule" target="_blank">
-                            <i class="bi bi-calendar-check"></i>
-                            Schedule 30-Min Meeting
-                        </a>-->
                     </div>
 
                     <!-- Footer / Credibility -->
@@ -883,7 +904,7 @@
             const vCard = `BEGIN:VCARD
 VERSION:3.0
 FN:E K Nagarajan
-TITLE:Growth Strategist
+TITLE:Business Growth Strategist
 ORG:Verifitech Solutions India Pvt. Ltd.
 TEL;TYPE=CELL:+91 9240262315
 EMAIL:corporate@verifitech.com
@@ -912,7 +933,6 @@ END:VCARD`;
         function copyAddress() {
             const address = 'Verifitech Solutions India Pvt. Ltd.\nBangalore | Mumbai | Delhi\nwww.verifitech.com';
             navigator.clipboard.writeText(address).then(() => {
-                // Show toast notification instead of alert for better UX
                 showToast('Address copied to clipboard!');
             });
         }
@@ -931,23 +951,6 @@ END:VCARD`;
             }, 2000);
         }
 
-        // Context Selection (for lead tracking)
-        function selectContext(element, context) {
-            // Remove active from all
-            document.querySelectorAll('.context-chip').forEach(chip => {
-                chip.classList.remove('active');
-            });
-            // Add active to clicked
-            element.classList.add('active');
-            
-            // Store in localStorage for analytics
-            localStorage.setItem('meeting_context', context);
-            localStorage.setItem('meeting_timestamp', new Date().toISOString());
-            
-            // In production, send to your CRM/analytics
-            console.log('Context selected:', context);
-        }
-
         // Track actions for analytics
         function trackAction(action) {
             const data = {
@@ -957,7 +960,6 @@ END:VCARD`;
                 context: localStorage.getItem('meeting_context') || 'unknown'
             };
             console.log('Action tracked:', data);
-            // In production: send to Google Analytics or your CRM
         }
 
         // Handle resize for particle adjustment
